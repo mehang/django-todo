@@ -1,0 +1,35 @@
+{%extends 'myapp/base.html' %}
+{% block body %}
+
+<h1><font color="black">Things to do</font></h1>
+{%for list in object_list %}
+{%if not list.completed%}
+
+{% if list.priority == 4 %}
+<h2><font color="darkred">{{list.title}}</font></h2>
+
+{% elif list.priority == 3 %}
+<h2><font color="orange">{{list.title}}</font></h2>
+
+{% elif list.priority == 2 %}
+<h2><font color="yellow">{{list.title}}</font></h2>
+
+{% else %}
+<h2><font color="green">{{list.title}}</font></h2>
+
+{%endif%}
+
+{%endif%}
+{%endfor%}
+
+<h1><font color="black">Things completed</font></h1>
+{%for list in object_list %}
+{%if list.completed%}
+<h2>{{list.title}}</h2>
+{%endif%}
+{%endfor%}
+{% endblock %}
+
+
+
+
